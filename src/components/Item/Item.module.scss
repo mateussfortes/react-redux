@@ -6,6 +6,11 @@
     flex-direction: column;
     overflow: hidden;
     width: 335px;
+    &-deletar {
+      position: absolute;
+      right: -10px;
+      top: -10px;
+    }
     &-descricao {
       background-color: #EFF9FF;
       display: flex;
@@ -26,6 +31,12 @@
   
     &-imagem {
       margin: 0 auto;
+      width: 335px;
+      height: 160px;
+      overflow: hidden;
+      img {
+        width: 100%;
+      }
     }
   
     &-info {

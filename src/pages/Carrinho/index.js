@@ -3,6 +3,7 @@ import { resetarCarrinho } from 'store/reducers/carrinho';
 
 import Header from '../../components/Header';
 import Item from '../../components/Item';
+import Button from 'components/Button';
 
 import styles from './Carrinho.module.scss';
 
@@ -51,12 +52,12 @@ export default function Carrinho() {
                     Subtotal: <strong> R$ {total.toFixed(2)}</strong>
                 </span>
             </div>
-            <button
+            <Button
                 className={styles.finalizar}
                 onClick={() => dispatch(resetarCarrinho())}
             >
             Finalizar compra
-            </button>
+            </Button>
         </div>
     </div>);
 }
