@@ -7,7 +7,7 @@ export default function TituloComImagem({
     imagem,
     children,
 }) {
-    return (<div class={`${className} ${styles.header}`}>
+    return (<div className={`${className} ${styles.header}`}>
         <div className={styles['header-texto']}>
             <h1>{titulo}</h1>
             <h2>{descricao}</h2>
