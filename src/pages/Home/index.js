@@ -2,8 +2,8 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useCallback, useEffect } from 'react';
 import instance from 'common/config/api';
-import { adicionarCategorias } from 'store/reducers/categorias';
-import { adicionarItens } from 'store/reducers/itens';
+import { adicionarCategorias, buscarCategorias } from 'store/reducers/categorias';
+import { buscarItens } from 'store/reducers/itens';
 
 
 import Header from '../../components/Header';
@@ -17,27 +17,10 @@ export default function Home() {
     const navigate = useNavigate();
     const categorias = useSelector(state => state.categorias);
 
-    const buscarCategorias = useCallback(
-        async () => {
-            const resposta = await instance.get('/categorias');
-            dispatch(adicionarCategorias(resposta.data));
-        }, 
-        [dispatch]
-    );
-
-    const buscarItens = useCallback(
-        async () => {
-            const resposta = await instance.get('/itens');
-            dispatch(adicionarItens(resposta.data));
-        }, 
-        [dispatch]
-    );
-
-
     useEffect(() => {
-        buscarCategorias();
-        buscarItens();
-    }, [buscarCategorias, buscarItens]);
+        dispatch(buscarCategorias());
+        dispatch(buscarItens());
+    }, [dispatch]);
 
     return (<div>
         <Header 
