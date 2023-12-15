@@ -1,8 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { useCallback, useEffect } from 'react';
-import instance from 'common/config/api';
-import { adicionarCategorias, buscarCategorias } from 'store/reducers/categorias';
+import { useEffect } from 'react';
+import { buscarCategorias } from 'store/reducers/categorias';
 import { buscarItens } from 'store/reducers/itens';
 
 

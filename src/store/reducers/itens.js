@@ -31,21 +31,29 @@ const itensSlice = createSlice({
     deletarItem: (state, {payload}) => {
       const index = state.findIndex(item => item.id === payload);
       state.splice(index, 1);
-    },
-    adicionarItens: (state, { payload }) => {
-      state.push(...payload);
     }
   },
   extraReducers: builder => {
     builder.addCase(
       buscarItens.fulfilled,
       (state, { payload }) => {
-        state.push(...payload);
+        console.log('itens carregados');
+        return payload;
       }
-    )
+    ).addCase(
+      buscarItens.pending,
+      (state, { payload }) => {
+        console.log('carregando itens');
+      }
+    ).addCase(
+      buscarItens.rejected,
+      (state, { payload }) => {
+        console.log('busca de itens rejeitada');
+      }
+    );
   }
 });
 
-export const { mudarFavorito, cadastrarItems, mudarItem, deletarItem, adicionarItens } = itensSlice.actions; 
+export const { mudarFavorito, cadastrarItems, mudarItem, deletarItem } = itensSlice.actions; 
 
 export default itensSlice.reducer;
